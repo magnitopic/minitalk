@@ -6,41 +6,33 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 12:59:51 by alaparic          #+#    #+#             */
-/*   Updated: 2022/11/24 18:21:09 by alaparic         ###   ########.fr       */
+/*   Updated: 2022/11/30 13:26:55 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "client.h"
 
-int	ft_atoi(const char *str)
+int	sendBinary(int c)
 {
-	int		sign;
-	size_t	num;
-
-	sign = 1;
-	num = 0;
-	while ((*str > 8 && *str < 14) || *str == 32)
-		str++;
-	if (*str == '+' || *str == '-')
+	if (c == 0 || c == 1)
+		return (c);
+	else
 	{
-		if (*str == '-')
-			sign *= -1;
-		str++;
+		return ((c % 2) + 10 * sendBinary(c / 2));
 	}
-	while (*str >= '0' && *str <= '9')
-	{
-		num = num * 10 + (*str - '0');
-		str++;
-	}
-	if (num > 9223372036854775807 && sign == 1)
-		return (-1);
-	else if (num > 9223372036854775807 && sign == -1)
-		return (0);
-	return (sign * num);
 }
 
 int	main(int argc, char **argv)
 {
-	kill(ft_atoi(argv[1]), SIGUSR1);
+	char	*message;
+	char	*binary;
+
+	message = argv[2];
+	while (*message)
+	{
+		binary = ft_itoa(sendBinary(*message++));
+		printf("%s", binary);
+	}
+	//kill(ft_atoi(argv[1]), SIGUSR1);
 	return (0);
 }
