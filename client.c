@@ -6,32 +6,25 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 12:59:51 by alaparic          #+#    #+#             */
-/*   Updated: 2022/11/30 13:40:39 by alaparic         ###   ########.fr       */
+/*   Updated: 2022/11/30 17:40:19 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "client.h"
 
-int	send_binary(int c)
+int	send_binary(char c)
 {
-	if (c == 0 || c == 1)
-		return (c);
-	else
-	{
-		return ((c % 2) + 10 * sendBinary(c / 2));
-	}
+	
 }
 
 int	main(int argc, char **argv)
 {
 	char	*message;
-	char	*binary;
 
 	message = argv[2];
 	while (*message)
 	{
-		binary = ft_itoa(send_binary(*message++));
-		printf("%s", binary);
+		send_binary(*message++);
 	}
 	//kill(ft_atoi(argv[1]), SIGUSR1);
 	return (0);
