@@ -3,7 +3,7 @@
 ## Add a new submodule
 
 ```
-git submodule add REPO_URL
+git submodule add https://github.com/magnitopic/libft.git
 ```
 
 ## Set submodules when cloned
