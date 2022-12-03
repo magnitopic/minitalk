@@ -6,11 +6,12 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 12:18:37 by alaparic          #+#    #+#             */
-/*   Updated: 2022/12/02 16:19:08 by alaparic         ###   ########.fr       */
+/*   Updated: 2022/12/03 23:24:17 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "server.h"
+#include "libft/libft.h"
 
 int	g_message = 0;
 

@@ -6,13 +6,14 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 12:59:51 by alaparic          #+#    #+#             */
-/*   Updated: 2022/12/02 16:15:40 by alaparic         ###   ########.fr       */
+/*   Updated: 2022/12/03 23:25:35 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "client.h"
+#include "libft/libft.h"
 
-int	send_binary(char c, int pid)
+void	send_binary(char c, int pid)
 {
 	int	i;
 
@@ -21,7 +22,7 @@ int	send_binary(char c, int pid)
 	{
 		if (c & (1 << i++))
 		{
-			kill(ft_atoi(), SIGUSR1);
+			kill(pid, SIGUSR1);
 		}
 		else
 		{
@@ -37,7 +38,7 @@ int	main(int argc, char **argv)
 	message = argv[2];
 	while (*message)
 	{
-		send_binary(*message++, argv[1]);
+		send_binary(*message++, ft_atoi(argv[1]));
 	}
 	return (0);
 }
