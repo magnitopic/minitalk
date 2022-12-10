@@ -6,33 +6,34 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 12:18:37 by alaparic          #+#    #+#             */
-/*   Updated: 2022/12/10 14:26:59 by alaparic         ###   ########.fr       */
+/*   Updated: 2022/12/10 16:48:15 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<signal.h>
 #include "libft/libft.h"
 
-int	g_message = 0;
-
-static void	one(int signum)
+static void	ft_handler(int signum)
 {
-	g_message = (g_message * 10) + 1;
-	ft_printf("%d", 1);
-}
+	static int	len = 0;
+	static int	character = 0;
 
-static void	zero(int signum)
-{
-	g_message *= 10;
-	ft_printf("%d", 0);
+	if (signum == SIGUSR1)
+		character |= (1 << len);
+	len++;
+	if (len == 8)
+	{
+		ft_printf("%c", character);
+		character = 0;
+		len = 0;
+	}
 }
 
 int	main(void)
 {
 	ft_printf("%d\n", getpid());
-	signal(SIGUSR1, one);
-	signal(SIGUSR2, zero);
+	signal(SIGUSR1, ft_handler);
+	signal(SIGUSR2, ft_handler);
 	while (1)
 		pause();
-	return (0);
 }
