@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 12:18:37 by alaparic          #+#    #+#             */
-/*   Updated: 2022/12/10 16:48:15 by alaparic         ###   ########.fr       */
+/*   Updated: 2022/12/10 17:59:56 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	ft_handler(int signum)
 
 int	main(void)
 {
-	ft_printf("%d\n", getpid());
+	ft_printf("Server Started.\nPID: %d\nWating for messages...\n", getpid());
 	signal(SIGUSR1, ft_handler);
 	signal(SIGUSR2, ft_handler);
 	while (1)

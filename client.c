@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 12:59:51 by alaparic          #+#    #+#             */
-/*   Updated: 2022/12/10 14:25:59 by alaparic         ###   ########.fr       */
+/*   Updated: 2022/12/10 19:27:21 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,13 @@ static void	send_binary(int pid, char *str)
 		while (i < 8)
 		{
 			if (*str & (1 << i++))
-			{
 				kill(pid, SIGUSR1);
-				ft_printf("1");
-			}
 			else
-			{
 				kill(pid, SIGUSR2);
-				ft_printf("0");
-			}
-			usleep(50);
+			usleep(200);
 		}
 		str++;
+		i = 0;
 	}
 }
 
