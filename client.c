@@ -6,12 +6,12 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 12:59:51 by alaparic          #+#    #+#             */
-/*   Updated: 2022/12/10 19:27:21 by alaparic         ###   ########.fr       */
+/*   Updated: 2022/12/12 18:06:22 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <signal.h>
-#include "libft/libft.h"
+#include "./libft/libft.h"
 
 static void	send_binary(int pid, char *str)
 {
@@ -31,6 +31,7 @@ static void	send_binary(int pid, char *str)
 		str++;
 		i = 0;
 	}
+	ft_printf("Message Sent");
 }
 
 int	main(int argc, char **argv)
