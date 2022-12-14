@@ -35,7 +35,7 @@ $(SERVER):			$(SERVER_SRC)
 
 $(SERVER_BONUS):	$(SERVER_BONUS_SRC)
 					$(CC) $(CFLAGS) $(SERVER_BONUS_SRC) $(LIBFT_SRC)$(LIBFT) -o $(SERVER_BONUS)
-					@printf "Server compiled ✅\n\n"
+					@printf "Server bonus compiled ✅\n\n"
 
 $(CLIENT):			$(CLIENT_SRC)
 					$(CC) $(CFLAGS) $(CLIENT_SRC) $(LIBFT_SRC)$(LIBFT) -o $(CLIENT)
@@ -43,7 +43,7 @@ $(CLIENT):			$(CLIENT_SRC)
 
 $(CLIENT_BONUS):	$(CLIENT_BONUS_SRC)
 					$(CC) $(CFLAGS) $(CLIENT_BONUS_SRC) $(LIBFT_SRC)$(LIBFT) -o $(CLIENT_BONUS)
-					@printf "Client compiled ✅\n\n"
+					@printf "Client bonus compiled ✅\n\n"
 
 $(CLIENT_BONUS):	
 

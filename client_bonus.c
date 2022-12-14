@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 11:22:04 by alaparic          #+#    #+#             */
-/*   Updated: 2022/12/12 15:17:01 by alaparic         ###   ########.fr       */
+/*   Updated: 2022/12/14 17:54:34 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 static void	ft_handler(int signum)
 {
-	ft_printf("Message recived by server👍");
+	if (signum == SIGUSR1)
+		ft_printf("Message recived by server👍\n");
 	exit(0);
 }
 
