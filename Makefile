@@ -17,21 +17,21 @@ $(LIBFT):
 			@make -C libft
 
 $(SERVER):	$(SERVER_SRC)
-			@$(CC) $(CFLAGS) $(SERVER_SRC) $(LIBFT_SRC)$(LIBFT) -o $(SERVER)
-			@printf "\nServer compiled ✅\n"
+			$(CC) $(CFLAGS) $(SERVER_SRC) $(LIBFT_SRC)$(LIBFT) -o $(SERVER)
+			@printf "Server compiled ✅\n\n"
 
 $(CLIENT):	$(CLIENT_SRC)
-			@$(CC) $(CFLAGS) $(CLIENT_SRC) $(LIBFT_SRC)$(LIBFT) -o $(CLIENT)
-			@printf "\nClient compiled ✅\n"
+			$(CC) $(CFLAGS) $(CLIENT_SRC) $(LIBFT_SRC)$(LIBFT) -o $(CLIENT)
+			@printf "Client compiled ✅\n\n"
 
-clean:		
-			@$(RM) $(OBJS) $(OBJSB)
+clean:
 			@$(RM) $(CLIENT) $(SERVER)
 			@printf "\nRemoved minitalk 🗑️\n"
 
 fclean:		clean
-			@make -C libft clean
+			@make -C libft fclean
 
 re:			fclean all
+			@printf "Minitalk re-compiled 🔄\n"
 
 .PHONY:		all clean fclean re
