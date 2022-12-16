@@ -23,8 +23,10 @@ CFLAGS				=	-Wall -Werror -Wextra
 
 # Commands
 all:		$(LIBFT) $(SERVER) $(CLIENT)
+			@printf "Minitalk compiled ✅\n"
 
 bonus:		$(LIBFT) $(SERVER_BONUS) $(CLIENT_BONUS)
+			@printf "Minitalk bonus compiled ✅✨\n"
 
 $(LIBFT):
 			@make -C libft
@@ -35,7 +37,7 @@ $(SERVER):			$(SERVER_SRC)
 
 $(SERVER_BONUS):	$(SERVER_BONUS_SRC)
 					$(CC) $(CFLAGS) $(SERVER_BONUS_SRC) $(LIBFT_SRC)$(LIBFT) -o $(SERVER_BONUS)
-					@printf "Server bonus compiled ✅\n\n"
+					@printf "Server bonus compiled ✅✨\n\n"
 
 $(CLIENT):			$(CLIENT_SRC)
 					$(CC) $(CFLAGS) $(CLIENT_SRC) $(LIBFT_SRC)$(LIBFT) -o $(CLIENT)
@@ -43,7 +45,7 @@ $(CLIENT):			$(CLIENT_SRC)
 
 $(CLIENT_BONUS):	$(CLIENT_BONUS_SRC)
 					$(CC) $(CFLAGS) $(CLIENT_BONUS_SRC) $(LIBFT_SRC)$(LIBFT) -o $(CLIENT_BONUS)
-					@printf "Client bonus compiled ✅\n\n"
+					@printf "Client bonus compiled ✅✨\n\n"
 
 $(CLIENT_BONUS):	
 
