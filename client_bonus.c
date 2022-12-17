@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 11:22:04 by alaparic          #+#    #+#             */
-/*   Updated: 2022/12/15 12:47:43 by alaparic         ###   ########.fr       */
+/*   Updated: 2022/12/16 11:49:37 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ int	main(int argc, char **argv)
 {
 	if (argc != 3)
 		return (1);
-	send_binary(ft_atoi(argv[1]), argv[2]);
 	signal(SIGUSR1, ft_handler);
+	send_binary(ft_atoi(argv[1]), argv[2]);
 	pause();
+	return (0);
 }
