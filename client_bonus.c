@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 11:22:04 by alaparic          #+#    #+#             */
-/*   Updated: 2022/12/24 18:35:00 by alaparic         ###   ########.fr       */
+/*   Updated: 2022/12/29 13:54:56 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,37 +16,43 @@
 static void	ft_handler(int signum)
 {
 	if (signum == SIGUSR1)
-		ft_printf("Message recived by server👍\n");
-	exit(0);
+		ft_printf("Signal recived\n");
+	else
+	{
+		ft_printf("Full message recived ✅\n");
+		exit(0);
+	}
 }
 
-static void	send_binary(int pid, char *str)
+static void	send_binary(int pid, char character)
 {
 	int	i;
 
 	i = 0;
-	while (*str)
+	while (i < 8)
 	{
-		while (i < 8)
-		{
-			if (*str & (1 << i++))
-				kill(pid, SIGUSR1);
-			else
-				kill(pid, SIGUSR2);
-			usleep(100);
-		}
-		str++;
-		i = 0;
+		if (character++ & (1 << i++))
+			kill(pid, SIGUSR1);
+		else
+			kill(pid, SIGUSR2);
+		usleep(100);
 	}
-	ft_printf("Message Sent 📨\n");
 }
 
 int	main(int argc, char **argv)
 {
+	char	*str;
+	int		pid;
+
+	str = argv[2];
+	pid = ft_atoi(argv[1]);
 	if (argc != 3)
 		return (1);
 	signal(SIGUSR1, ft_handler);
-	send_binary(ft_atoi(argv[1]), argv[2]);
+	signal(SIGUSR2, ft_handler);
+	while (*str)
+		send_binary(pid, *str++);
+	send_binary(pid, '\0');
 	sleep(10);
 	ft_printf("No response from server ❌\n");
 	return (0);

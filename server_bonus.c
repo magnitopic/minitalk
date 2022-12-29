@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 12:27:38 by alaparic          #+#    #+#             */
-/*   Updated: 2022/12/16 20:37:45 by alaparic         ###   ########.fr       */
+/*   Updated: 2022/12/29 13:46:39 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,11 @@ static void	ft_handler(int signum, siginfo_t *info, void *context)
 	len++;
 	if (len == 8)
 	{
+		if (character == '\0')
+			kill(info->si_pid, SIGUSR2);
+		else
+			kill(info->si_pid, SIGUSR1);
 		ft_printf("%c", character);
-		kill(info->si_pid, SIGUSR1);
 		character = 0;
 		len = 0;
 	}
@@ -34,11 +37,15 @@ static void	ft_handler(int signum, siginfo_t *info, void *context)
 int	main(void)
 {
 	struct sigaction	sa1;
-	
+	struct sigaction	sa2;
+
 	ft_printf("Server Started.\nPID: %d\nWating for messages...\n", getpid());
 	sa1.sa_flags = SA_SIGINFO;
 	sa1.sa_sigaction = ft_handler;
-	sigaction(SIGUSR1, &sa1, 0);
+	sigaction(SIGUSR1, &sa1, NULL);
+	sa2.sa_flags = SA_SIGINFO;
+	sa2.sa_sigaction = ft_handler;
+	sigaction(SIGUSR2, &sa2, NULL);
 	while (1)
 		pause();
 }
