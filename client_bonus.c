@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 11:22:04 by alaparic          #+#    #+#             */
-/*   Updated: 2022/12/29 13:54:56 by alaparic         ###   ########.fr       */
+/*   Updated: 2022/12/30 10:46:58 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	send_binary(int pid, char character)
 	i = 0;
 	while (i < 8)
 	{
-		if (character++ & (1 << i++))
+		if (character & (1 << i++))
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
