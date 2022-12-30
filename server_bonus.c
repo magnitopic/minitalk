@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 12:27:38 by alaparic          #+#    #+#             */
-/*   Updated: 2022/12/29 13:46:39 by alaparic         ###   ########.fr       */
+/*   Updated: 2022/12/30 12:45:59 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	ft_handler(int signum, siginfo_t *info, void *context)
 	if (len == 8)
 	{
 		if (character == '\0')
-			kill(info->si_pid, SIGUSR2);
+			(kill(info->si_pid, SIGUSR2), ft_printf("\n"));
 		else
 			kill(info->si_pid, SIGUSR1);
 		ft_printf("%c", character);

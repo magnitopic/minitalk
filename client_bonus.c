@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 11:22:04 by alaparic          #+#    #+#             */
-/*   Updated: 2022/12/30 10:46:58 by alaparic         ###   ########.fr       */
+/*   Updated: 2022/12/30 13:19:56 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 
 static void	ft_handler(int signum)
 {
-	if (signum == SIGUSR1)
-		ft_printf("Signal recived\n");
-	else
+	if (signum == SIGUSR2)
 	{
 		ft_printf("Full message recived ✅\n");
 		exit(0);
