@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 12:59:51 by alaparic          #+#    #+#             */
-/*   Updated: 2022/12/14 18:07:58 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/01/03 13:00:20 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static void	send_binary(int pid, char *str)
 		}
 		str++;
 		i = 0;
+		usleep(250);
 	}
 	ft_printf("Message Sent 📨\n");
 }
