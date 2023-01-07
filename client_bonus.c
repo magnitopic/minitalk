@@ -6,11 +6,12 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 11:22:04 by alaparic          #+#    #+#             */
-/*   Updated: 2023/01/03 17:34:54 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/01/07 17:37:10 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <signal.h>
+#include <stdio.h>
 #include "libft/libft.h"
 
 static void	ft_handler(int signum)
@@ -53,6 +54,6 @@ int	main(int argc, char **argv)
 		send_binary(pid, *str++);
 	send_binary(pid, '\0');
 	sleep(10);
-	ft_printf("No response from server ❌\n");
+	ft_printf("\033[31mNo response from server ❌\n");
 	return (0);
 }
