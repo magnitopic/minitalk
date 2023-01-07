@@ -16,47 +16,58 @@ CLIENT_BONUS_SRC	=	./client_bonus.c
 LIBFT				=	libft.a
 LIBFT_SRC			=	./libft/
 
-# Other vars
+# Compiler
 CC					=	gcc
 RM					=	rm -f
 CFLAGS				=	-Wall -Werror -Wextra
 
-# Commands
+# Colours
+BLACK				=	\033[0;30m
+RED					=	\033[0;31m
+GREEN				=	\033[0;32m
+YELLOW				=	\033[0;33m
+BLUE				=	\033[0;34m
+PURPLE				=	\033[0;35m
+CYAN				=	\033[0;36m
+WHITE				=	\033[0;37m
+RESET				=	\033[0m
+
+# Rules
 all:		$(LIBFT) $(SERVER) $(CLIENT)
-			@printf "Minitalk compiled ✅\n"
+			@printf "$(BLUE)==> $(CYAN)Minitalk compiled ✅\n$(RESET)"
 
 bonus:		$(LIBFT) $(SERVER_BONUS) $(CLIENT_BONUS)
-			@printf "Minitalk bonus compiled ✅✨\n"
+			@printf "$(BLUE)==> $(CYAN)Minitalk bonus compiled ✅✨\n$(RESET)"
 
 $(LIBFT):
 			@make -C libft
 
 $(SERVER):			$(SERVER_SRC)
 					$(CC) $(CFLAGS) $(SERVER_SRC) $(LIBFT_SRC)$(LIBFT) -o $(SERVER)
-					@printf "Server compiled ✅\n\n"
+					@printf "$(GREEN)Server compiled ✅\n\n$(RESET)"
 
 $(SERVER_BONUS):	$(SERVER_BONUS_SRC)
 					$(CC) $(CFLAGS) $(SERVER_BONUS_SRC) $(LIBFT_SRC)$(LIBFT) -o $(SERVER_BONUS)
-					@printf "Server bonus compiled ✅✨\n\n"
+					@printf "$(GREEN)Server bonus compiled ✅✨\n\n$(RESET)"
 
 $(CLIENT):			$(CLIENT_SRC)
 					$(CC) $(CFLAGS) $(CLIENT_SRC) $(LIBFT_SRC)$(LIBFT) -o $(CLIENT)
-					@printf "Client compiled ✅\n\n"
+					@printf "$(GREEN)Client compiled ✅\n\n$(RESET)"
 
 $(CLIENT_BONUS):	$(CLIENT_BONUS_SRC)
 					$(CC) $(CFLAGS) $(CLIENT_BONUS_SRC) $(LIBFT_SRC)$(LIBFT) -o $(CLIENT_BONUS)
-					@printf "Client bonus compiled ✅✨\n\n"
+					@printf "$(GREEN)Client bonus compiled ✅✨\n\n$(RESET)"
 
 $(CLIENT_BONUS):	
 
 clean:
 			@$(RM) $(CLIENT) $(SERVER) $(SERVER_BONUS) $(CLIENT_BONUS)
-			@printf "\nRemoved minitalk 🗑️\n"
+			@printf "\n$(BLUE)==> $(RED)Removed minitalk 🗑️\n$(RESET)"
 
 fclean:		clean
 			@make -C libft fclean
 
 re:			fclean all
-			@printf "Minitalk recompiled 🔄\n"
+			@printf "$(BLUE)==> $(CYAN)Minitalk recompiled 🔄\n$(RESET)"
 
 .PHONY:		all clean fclean re bonus
