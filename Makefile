@@ -40,7 +40,7 @@ bonus:		$(LIBFT) $(SERVER_BONUS) $(CLIENT_BONUS)
 			@printf "$(BLUE)==> $(CYAN)Minitalk bonus compiled ✅✨\n$(RESET)"
 
 $(LIBFT):
-			@make -C libft
+			@make -C libft  bonus
 
 $(SERVER):			$(SERVER_SRC)
 					$(CC) $(CFLAGS) $(SERVER_SRC) $(LIBFT_SRC)$(LIBFT) -o $(SERVER)
