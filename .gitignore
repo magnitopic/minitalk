@@ -4,4 +4,5 @@ server
 client_bonus
 server_bonus
 .vscode
+.DS_Store
 *.a

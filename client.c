@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 12:59:51 by alaparic          #+#    #+#             */
-/*   Updated: 2023/01/03 17:35:02 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/01/09 17:32:17 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	send_binary(int pid, char *str)
 		i = 0;
 		usleep(250);
 	}
-	ft_printf("Message Sent 📨\n");
+	ft_printf("\033[0;32mMessage Sent 📨\n");
 }
 
 int	main(int argc, char **argv)

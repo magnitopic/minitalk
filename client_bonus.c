@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 11:22:04 by alaparic          #+#    #+#             */
-/*   Updated: 2023/01/07 17:37:10 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/01/09 16:51:17 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	ft_handler(int signum)
 {
 	if (signum == SIGUSR2)
 	{
-		ft_printf("Full message recived ✅\n");
+		ft_printf("\033[32mFull message recived ✅\n");
 		exit(0);
 	}
 }
@@ -44,10 +44,10 @@ int	main(int argc, char **argv)
 	char	*str;
 	int		pid;
 
-	str = argv[2];
-	pid = ft_atoi(argv[1]);
 	if (argc != 3)
 		return (1);
+	str = argv[2];
+	pid = ft_atoi(argv[1]);
 	signal(SIGUSR1, ft_handler);
 	signal(SIGUSR2, ft_handler);
 	while (*str)
