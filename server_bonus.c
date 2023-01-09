@@ -6,11 +6,11 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 12:27:38 by alaparic          #+#    #+#             */
-/*   Updated: 2022/12/30 12:45:59 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/01/09 16:27:34 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<signal.h>
+#include <signal.h>
 #include "libft/libft.h"
 
 static void	ft_handler(int signum, siginfo_t *info, void *context)
@@ -25,10 +25,10 @@ static void	ft_handler(int signum, siginfo_t *info, void *context)
 	if (len == 8)
 	{
 		if (character == '\0')
-			(kill(info->si_pid, SIGUSR2), ft_printf("\n"));
+			(kill(info->si_pid, SIGUSR2), ft_putchar('\n'));
 		else
 			kill(info->si_pid, SIGUSR1);
-		ft_printf("%c", character);
+		ft_putchar(character);
 		character = 0;
 		len = 0;
 	}

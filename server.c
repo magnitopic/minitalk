@@ -6,11 +6,11 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 12:18:37 by alaparic          #+#    #+#             */
-/*   Updated: 2022/12/10 17:59:56 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/01/09 17:10:46 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<signal.h>
+#include <signal.h>
 #include "libft/libft.h"
 
 static void	ft_handler(int signum)
@@ -23,7 +23,7 @@ static void	ft_handler(int signum)
 	len++;
 	if (len == 8)
 	{
-		ft_printf("%c", character);
+		ft_putchar(character);
 		character = 0;
 		len = 0;
 	}
