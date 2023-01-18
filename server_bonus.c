@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 12:27:38 by alaparic          #+#    #+#             */
-/*   Updated: 2023/01/09 16:27:34 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/01/18 17:22:55 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(void)
 	struct sigaction	sa1;
 	struct sigaction	sa2;
 
-	ft_printf("Server Started.\nPID: %d\nWating for messages...\n", getpid());
+	ft_printf("Server Started.\nPID: %d\nWaiting for messages...\n", getpid());
 	sa1.sa_flags = SA_SIGINFO;
 	sa1.sa_sigaction = ft_handler;
 	sigaction(SIGUSR1, &sa1, NULL);
